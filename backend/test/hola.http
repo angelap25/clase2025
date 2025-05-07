@@ -1,0 +1,14 @@
+GET http://localhost:3000/hola
+
+###
+
+POST http://localhost:3000/hola
+Content-Type: application/json
+
+{
+  "mensaje": "Probando POST"
+}
+
+###
+
+GET http://localhost:3000/hola
