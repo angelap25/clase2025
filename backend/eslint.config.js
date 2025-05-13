@@ -7,8 +7,7 @@ export default [
         ecmaVersion: 2020,
         globals:  {
             ...globals.builtin,
-            ...globals.node,
-            ...globals.browser
+            ...globals.node
           }
         },
     rules: {

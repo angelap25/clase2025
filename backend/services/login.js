@@ -1,4 +1,4 @@
-import { InvalidArgumentException } from '../exceptions/invalida_argument_exceptions.js';
+import { InvalidArgumentException } from '../exceptions/invalid_argument_exceptions.js';
 import { InvalidCredentialsException } from '../exceptions/invalid_credentials_exceptions.js';
 
 export class LoginService {

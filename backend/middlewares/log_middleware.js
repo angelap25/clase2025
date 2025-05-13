@@ -1,3 +1,4 @@
+
 export function logMiddleware(req, res, next) {
     const date = new Date()
         .toISOString()
@@ -15,7 +16,7 @@ export function logMiddleware(req, res, next) {
 
         const bodyText = JSON.stringify(body);
 
-        console.log(`[${date}] ${ip} $ {request}`);
+        console.log(`[${date}] ${ip} ${request} ${bodyText}`);
 
         next();
 }
