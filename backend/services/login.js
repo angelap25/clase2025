@@ -1,26 +1,27 @@
-export function loginService(username, password) {
-    if (!username || !password
-        || typeof username != 'string'
-        || typeof password != 'string'
-    ) {
-        return {
-            error: 'Argumentos inválidos.',
-        };
-    }
+import { InvalidArgumentException } from '../exceptions/invalida_argument_exceptions.js';
+import { InvalidCredentialsException } from '../exceptions/invalid_credentials_exceptions.js';
 
-    if (username != 'admin') {
-        return {
-            error: 'Usuario no encontrado.',
-        };
-    }
+export class LoginService {
+    static async login(credentials) {
+        if (!credentials
+            || !credentials.username
+            || !credentials.password
+            || typeof credentials.username != 'string'
+            || typeof credentials.password != 'string'
+        )
+        throw new InvalidArgumentException();
+    
 
-    if (password != '1234' ) {
-        return {
-            error: 'Crendenciales inválidas.',
-        };
-}
+        if (credentials.username != 'admin') {
+             throw new InvalidCredentialsException();
+        }
 
-    return {
-   token: 'Token de acceso'
-    };
+        if (credentials.password != '1234' ) {
+          throw new InvalidCredentialsException();
+        }
+
+        return {
+            token: 'Token de acceso'
+        };
+     }
 }

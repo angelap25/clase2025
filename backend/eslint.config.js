@@ -13,8 +13,7 @@ export default [
         },
     rules: {
         ... js.configs.recommended.rules,
-        'no-unused-vars': 'warn',
-        'no-console': ["warn", { "allow": ["log"] }]
+        'no-unused-vars': 'warn'
 
     }
 }
