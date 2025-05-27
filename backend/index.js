@@ -5,7 +5,8 @@ import { logMiddleware } from './middlewares/log_middleware.js';
 import { addDependency } from './libs/dependencies.js';
 import { LoginService } from './services/login.js';
 import { UserService } from './services/users.js';
-import { UserMockup } from './mockups/user.js'
+import { UserMockup } from './mockups/user.js';
+import config from './config.js'
 
 
 const app = express();
@@ -28,7 +29,7 @@ const PORT = 3000;
 app.listen(
     PORT, 
     () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${config.port}`);
     }
 );
 

@@ -2,6 +2,7 @@ import { InvalidArgumentException } from '../exceptions/invalid_argument_excepti
 import { InvalidCredentialsException } from '../exceptions/invalid_credentials_exceptions.js';
 import { getDependency } from '../libs/dependencies.js';
 import bcrypt from 'bcrypt';
+import config from '../config.js';
 
 export class LoginService {
     static async login(credentials) {
@@ -17,19 +18,20 @@ export class LoginService {
         const user = await UserService.getSingleOrNullByUsername(credentials.username); 
         if (!user) 
              throw new InvalidCredentialsException();
-
+/*
             console.log('Calcullando hash');
             const hash = await bcrypt.hash('1234', 10);
             console.log(hash);
             console.log('Hash calculado');
-        
+        */
 
-        if (!(await bcrypt.compare(credentials.password, user.hashedPassword))) {
+        if (!(await bcrypt.compare(credentials.password, user.hashedPassword))) 
           throw new InvalidCredentialsException();
-        }
+        
+        const jwt = config.jwtKey;
 
         return {
-            token: 'Token de acceso'
+            token: jwt
         };
         
      }
