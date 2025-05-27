@@ -8,6 +8,10 @@ import { UserService } from './services/users.js';
 import { UserMockup } from './mockups/user.js';
 import config from './config.js'
 
+if (!config.jwtKey){
+    console.error(`No se ha definido un jwtKey en la configuración. Por favor creer un archivo config.local.js segun se especifica en su config.js.`);
+    process.exit(1);
+}
 
 const app = express();
 
