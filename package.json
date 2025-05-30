@@ -4,5 +4,8 @@
         "eslint": "^9.26.0",
         "eslint-plugin-react": "^7.37.5",
         "globals": "^16.0.0"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2"
     }
 }

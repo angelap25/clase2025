@@ -34,6 +34,7 @@ export class LoginService {
             userId: user.id,
             username: user.username,
             fullName: user.fullName,
+            roles: user.roles,
         },
         config.jwtKey,
         {
