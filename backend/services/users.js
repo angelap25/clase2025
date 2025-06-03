@@ -6,8 +6,4 @@ static async getSingleOrNullByUsername(username){
    return await UserModel.getSingleOrNullByUsername(username);
 }
 
-static async get(){
-   const UserModel = getDependency('UserModel');
-   return await UserModel.find({});
-   }
 }
