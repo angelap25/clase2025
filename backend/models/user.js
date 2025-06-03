@@ -1,7 +1,12 @@
-import { UserMockup } from './user.js';
+import mongoose from 'mongoose';
 
-export class UserService {
-    static async getSingleOrNullByUsername(username) {
+const userSchema = new mongoose.Schema({
+    username: String,
+    hashedPassword: String,
+    fullName: String,
+    roles: Array,
+    email: String,
+});
 
-    }
-}
+
+export default mongoose.model('users', userSchema);

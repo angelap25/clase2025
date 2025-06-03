@@ -2,16 +2,19 @@ import express from 'express';
 import { controllers } from './controllers/controllers.js';
 import { errorHandlerMiddleware } from './middlewares/error_handler_middleware.js';
 import { logMiddleware } from './middlewares/log_middleware.js';
-import { addDependency } from './libs/dependencies.js';
-import { LoginService } from './services/login.js';
-import { UserService } from './services/users.js';
-import { UserMockup } from './mockups/user.js';
-import config from './config.js'
+import config from './config.js';
+import mongoose from 'mongoose';
+import configureDependencies from './configure.dependencies.js';
 
 if (!config.jwtKey){
     console.error(`No se ha definido un jwtKey en la configuración. Por favor creer un archivo config.local.js segun se especifica en su config.js.`);
     process.exit(1);
 }
+
+console.log(config.dbConnection);
+mongoose.connect(config.dbConnection)
+    .then(() => console.log('Conexión exitosa a MongoDB'))
+    .catch(error => console.error('Error al conectar:', error));
 
 const app = express();
 
@@ -25,9 +28,7 @@ controllers(router);
 
 router.use(errorHandlerMiddleware);
 
-addDependency('UserService', UserService);
-addDependency('LoginService', LoginService);
-addDependency('UserModel', UserMockup);
+configureDependencies();
 
 const PORT = 3000;
 app.listen(
