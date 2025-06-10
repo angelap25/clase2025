@@ -13,3 +13,27 @@ GET http://localhost:3000/api/login
 Accept: application/json
 Authorization: Bearer 
 Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/user
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODNmNjk5OTQ1YjljMzE4NGJlNDlhMjAiLCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbE5hbWUiOiJBZG1pbiIsInJvbGVzIjpbImFkbWluIl0sImlhdCI6MTc0OTI0ODgyOCwiZXhwIjoxNzQ5MjUyNDI4fQ.b79KAGUnXKosWz76mbpGleN6AH0eDJNUdVabxgVG_EY
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "1234",
+    "fullName": "Admin",
+    "roles": ["operator"],
+    "email": "operator@fake.com"
+}
+
+POST http://localhost:3000/api/user
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODNmNjk5OTQ1YjljMzE4NGJlNDlhMjAiLCJ1c2VybmFtZSI6ImFkbWluIiwiZnVsbE5hbWUiOiJBZG1pbiIsInJvbGVzIjpbImFkbWluIl0sImlhdCI6MTc0OTI0ODgyOCwiZXhwIjoxNzQ5MjUyNDI4fQ.b79KAGUnXKosWz76mbpGleN6AH0eDJNUdVabxgVG_EY
+Content-Type: application/json
+
+{
+    "uuid": 
+}

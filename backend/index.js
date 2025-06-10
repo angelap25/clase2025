@@ -4,7 +4,8 @@ import { errorHandlerMiddleware } from './middlewares/error_handler_middleware.j
 import { logMiddleware } from './middlewares/log_middleware.js';
 import config from './config.js';
 import mongoose from 'mongoose';
-import configureDependencies from './configure.dependencies.js';
+import configureDependencies from './configure.dependencies.js'; 
+import configureMiddlewares from './middlewares/configure_middleware.js';
 
 if (!config.jwtKey){
     console.error(`No se ha definido un jwtKey en la configuración. Por favor creer un archivo config.local.js segun se especifica en su config.js.`);
@@ -20,6 +21,8 @@ const app = express();
 
 const router = express.Router();
 app.use('/api', router);
+
+configureMiddlewares(router);
 
 router.use(express.json());
 router.use(logMiddleware);
